@@ -6,7 +6,7 @@ var $sql = require('../controllers/user');
 var pool  = mysql.createPool( $config.db);
 
 // 向前台返回JSON方法的简单封装
-var jsonWrite = function (res, ret) {
+function jsonWrite(res, ret) {
   console.log('json:'+ret+':'+res);
   if(typeof ret === 'undefined') {
     res.json({
@@ -21,7 +21,7 @@ var jsonWrite = function (res, ret) {
 module.exports = {
   queryAll: function (req, res, next) {
     pool.getConnection(function(err, connection) {
-      connection.query('select * from mytable', function(err, result) {
+      connection.query($sql.queryAll, function(err, result) {
         console.log('queryAll result:'+result);
         jsonWrite(res, result);
         connection.release();

@@ -1,4 +1,4 @@
-var user = function(req, res) {
+var user = {
   queryAll: 'select * from mytable'
 }
 
