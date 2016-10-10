@@ -1,17 +1,7 @@
-var mysql = require('mysql');
+var tribe = require('tribedb');
 //配置模块
 var config = require('./config');
 
-var client = mysql.createConnection(config.db);
+tribe.config.db('student',config.config);
   
-console.log('Connecting to MySQL...');
-  
-client.connect(function(error, results) {
-  if(error) {
-    console.log('Connection Error: ' + error.message);
-    return;
-  }
-  console.log('Connected to MySQL');
-});
-  
-module.exports = mysql;
+module.exports = tribe;

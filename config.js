@@ -1,11 +1,11 @@
 var settings={};
 
-settings.db={
+settings.config={
   host:'127.0.0.1',
   user:'root',
   password:'123456',
-  database: 'student',
-  port: 3306
+  port: 3306,
+  slave: false
 }
 
 module.exports=settings;
